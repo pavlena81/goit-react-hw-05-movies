@@ -31,8 +31,7 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="movies" element={<Movies />} />
-    </Routes> 
-      React homework template
+    </Routes>      
     </Container>
   );
 };
