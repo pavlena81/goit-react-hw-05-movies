@@ -15,6 +15,11 @@ export const CardWrapper = styled.div`
   }
 `;
 
+export const Img = styled.img`
+  width:100%;
+
+`
+
 export const MovieTitle = styled.h3`
   padding: 4px;
   margin-top: 8px;

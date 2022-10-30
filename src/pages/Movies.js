@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+
 
 import { MoviesList } from "components/MoviesList/MoviesList";
 import { SearchInput } from "components/SearchInput";
@@ -12,11 +13,15 @@ export const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     
     useEffect(() => {
-        async function searchMovies() {
-            setMovies((await searchMovie()).results)
+        if (searchParams.get('query')) {
+            async function searchMovies() {
+            setMovies((await searchMovie(searchParams.get('query'))).results)
         }
+        console.log(searchMovies);
         searchMovies()
-    },[query])
+        }
+        
+    },[query, searchParams])
 
     const queryTitle = searchParams.get('query') ?? "";
 
@@ -24,19 +29,29 @@ export const Movies = () => {
     //     movie.query.toLowerCase().includes(queryTitle.toLowerCase())
     // );
 
-    const onSearchInput = (query) => {
+    // const onSearchInput = (query) => {
 
-        const value = query.value;
+    //     const value = query.value;
+        
+    //     // const nextMovies = query !== "" ? { query } : {};
+    //     setSearchParams({ query: value });
+    //     setQuery(value);
+    // };
+
+    const onSearchInput = e => {
+        // e.preventDefault();
+        const value = e;
         setQuery(value);
-        // const nextMovies = query !== "" ? { query } : {};
-        setSearchParams({query: value});
-    };
+        setSearchParams({ query: value });
+    }
     
     return (
         <main>
             <SearchInput value={queryTitle} onChange={onSearchInput} />
             <MoviesList movies={movies} />
-            <h2>additional information</h2>
+           
+            
+
         </main>
     )
 }

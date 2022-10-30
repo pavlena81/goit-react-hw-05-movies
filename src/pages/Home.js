@@ -11,6 +11,7 @@ export const Home = () => {
         async function getTrend() {
          setMovies((await getTrending()).results)  
         } 
+         console.log(getTrend)
         getTrend();
     }, []);
 
@@ -19,7 +20,9 @@ export const Home = () => {
             <h1>Trending today</h1>
             {movies.length > 0 && (
                 <ul>
-                    {movies.map(({id,title}) => (
+                   
+                    {movies.map(({ id, title }) => (
+                        
                         <li key={id}>
                         <Link to={`/movies/${id}`} state={{ from: location }}>   
                                 {title}</Link>

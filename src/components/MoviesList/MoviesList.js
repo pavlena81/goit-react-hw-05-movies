@@ -1,14 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import { Container, CardWrapper, MovieTitle } from './MoviesList.styled';
+import { Container, CardWrapper, Img, MovieTitle } from './MoviesList.styled';
 export const MoviesList = ({ movies }) => {
     const location = useLocation();
     return (
         <Container>
-            {movies.map(({ id, title }) => (
+            {movies.map(({ id, title}) => (
         <CardWrapper key={id}>
           <Link to={`/movies/${id}`} state={{ from: location }}>
-            <img src="https://via.placeholder.com/200x100" alt="" />
+                  <Img src="https://via.placeholder.com/960x240" alt="title" />
             <MovieTitle>{title}</MovieTitle>
           </Link>
         </CardWrapper>
