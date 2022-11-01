@@ -1,17 +1,16 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  gap: 10px;
+  
+  gap: 5px;
 `;
 
 export const CardWrapper = styled.div`
-  border: 1px solid black;
-  border-radius: 4px;
-
+  
   > a {
     text-decoration: none;
+    
   }
 `;
 
@@ -25,4 +24,14 @@ export const MovieTitle = styled.h3`
   margin-top: 8px;
   margin-bottom: 0;
   color: black;
-`;
+   
+ 
+`
+
+export const StyledLink = styled(Link)`
+ &:hover,
+   :focus {
+    cursor:pointer;
+    color: orangered;
+  }
+`

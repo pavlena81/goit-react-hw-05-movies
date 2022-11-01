@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   position: relative;
   margin-bottom: 16px;
   text-transform: uppercase;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 `;
 
 export const Input = styled.input`
