@@ -24,6 +24,11 @@ export const MovieTitle = styled.h3`
   margin-top: 8px;
   margin-bottom: 0;
   color: black;
+  &:hover,
+   :focus {
+    cursor:pointer;
+    color: orangered;
+  }
    
  
 `
