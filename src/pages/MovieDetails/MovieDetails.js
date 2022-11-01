@@ -6,7 +6,7 @@ import { BackLink } from "components/BackLink/BackLink";
 
 import { getMovieId } from "services/api";
 import PropTypes from "prop-types";
-import { Container } from "./MovieDetails.styled";
+import { Container, Box } from "./MovieDetails.styled";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -48,21 +48,22 @@ export const MovieDetails = () => {
         <BackLink to={backLink}>Go back</BackLink> 
         <Container>        
         <div>
-            <img src={`https://image.tmdb.org/t/p/w500/${movieId.poster_path}`} alt={movieId.title} />
+            <img src={`https://image.tmdb.org/t/p/w300/${movieId.poster_path}`} alt={movieId.title} />
         </div>
                 
-        <div>
+        <Box>
             <h2>{movieId.title}{' '}
               {movieId.release_data === '' || movieId.release_data === undefined
                 ? 'No date'
                 : ` (${movieId.release_data.slice(0, 4)})`
               }
             </h2>
+            <p>User Score: {movieId.vote_average}</p>
             <h2>OverView</h2>
             <p>{movieId.overview}</p>
             <h2>Genres</h2>
           <p>{movieId.genres.map(genre=>genre.name).join(', ')}</p>          
-        </div>
+        </Box>
         </Container>
         <div>
         <h2>
