@@ -14,17 +14,17 @@ export async function searchMovie(query) {
 }
 
 
-export async function getMovieId() {
-    const response = await axios.get(`${URL}/movie/{movie_id}?api_key=${API_KEY}&language=en-US`)
+export async function getMovieId(id) {
+    const response = await axios.get(`${URL}/movie/${id}?api_key=${API_KEY}&language=en-US`)
     return response.data;
 }
 
-export async function getMovieCredits() {
-    const response = await axios.get(`${URL}/movie/{movie_id}/credits?api_key=${API_KEY}&language=en-US`)
+export async function getMovieCredits(id) {
+    const response = await axios.get(`${URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
     return response.data;
 }
 
-export async function getMovieReviews() {
-    const response = await axios.get(`${URL}/movie/{movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+export async function getMovieReviews(id) {
+    const response = await axios.get(`${URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
     return response.data;
 }

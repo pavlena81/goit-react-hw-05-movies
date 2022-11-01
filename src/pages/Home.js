@@ -11,10 +11,10 @@ export const Home = () => {
         async function getTrend() {
          setMovies((await getTrending()).results)  
         } 
-         console.log(getTrend)
+        
         getTrend();
     }, []);
-
+     console.log(movies)
     return (
         <main>
             <h1>Trending today</h1>

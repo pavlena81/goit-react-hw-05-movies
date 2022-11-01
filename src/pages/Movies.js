@@ -17,12 +17,12 @@ export const Movies = () => {
             async function searchMovies() {
             setMovies((await searchMovie(searchParams.get('query'))).results)
         }
-        console.log(searchMovies);
+        
         searchMovies()
         }
         
     },[query, searchParams])
-
+    console.log(movies);
     const queryTitle = searchParams.get('query') ?? "";
 
     // const visibleMovies = movies.filter((movie) =>
