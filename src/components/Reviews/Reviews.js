@@ -1,7 +1,59 @@
+import { getMovieReviews } from "services/api";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"; 
+
+import PropTypes from "prop-types";
+
+import { ListReview, ItemReview } from "./Reviews.styled";
+
 export const Reviews = () => {
+    const { id } = useParams;
+    const [reviews, setReview] = useState([]);
+   
+    useEffect(() => {
+        async function getReview(id) {
+            try { 
+                const data = await getMovieReviews(id);
+                setReview(data.results);
+            } catch(error) {
+                console.log(error)
+            }
+        }
+        getReview(id)
+    }, [id])
+
+    // if (review.length === 0) {
+    //     return <h3>We don't have any reviews</h3>
+    // }
+    console.log(reviews);
+    console.dir();
     return (
-        <section>
-            
-        </section>
+        <>
+            {reviews.length > 0 ? (
+            <ListReview>
+                {reviews.map(({ id, author, content, }) => {                
+                   
+                return (                    
+                    <ItemReview key={id}>                        
+                    <h3>Author: {author}</h3>
+                    <p>{content}</p>                        
+                    </ItemReview>
+                    
+                ) 
+            })}
+            </ListReview>) : (<p>We don't have any reviews for this movie.</p>)
+             }
+        </>
     )
+}
+
+
+Reviews.propTypes = {
+  id: PropTypes.arrayOf(
+    PropTypes.shape({
+      author: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      
+    })
+  ),
 }

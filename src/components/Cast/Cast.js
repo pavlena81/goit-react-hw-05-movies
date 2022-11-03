@@ -39,7 +39,7 @@ export const Cast = () => {
                     <Item key={id}>
                         <img src={poster} alt={name} width="300" height="450"/>
                     <h3>{name}</h3>
-                    <p>Character: {character}</p>
+                        <p>Character: {character}</p>                        
                     </Item>
                     
                 )

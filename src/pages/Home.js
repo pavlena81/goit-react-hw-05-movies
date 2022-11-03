@@ -2,6 +2,7 @@ import { getTrending } from "services/api";
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+import { ItemHome } from "./Home.styled";
 
 export const Home = () => {
     const location = useLocation();
@@ -23,10 +24,10 @@ export const Home = () => {
                    
                     {movies.map(({ id, title }) => (
                         
-                        <li key={id}>
+                        <ItemHome key={id}>
                         <Link to={`/movies/${id}`} state={{ from: location }}>   
                                 {title}</Link>
-                        </li>
+                        </ItemHome>
                     ))}
                 </ul>
             )}
