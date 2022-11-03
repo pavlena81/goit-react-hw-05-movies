@@ -10,6 +10,6 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   font-weight: 500;
     &:hover {
-    color: orangered;
+    color: #5972E8;
   }
 `;
