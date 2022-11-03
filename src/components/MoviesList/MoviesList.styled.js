@@ -27,7 +27,7 @@ export const MovieTitle = styled.h3`
   &:hover,
    :focus {
     cursor:pointer;
-    color: orangered;
+    color: #5972E8;
   }
    
  

@@ -7,6 +7,7 @@ import { Container, Header, Link } from "./App.styled";
 import { Cast } from "./Cast/Cast";
 import { Reviews } from "./Reviews/Reviews";
 
+import { IconHome, IconMovie } from "./App.styled";
 export const App = () => {
   return (
     
@@ -24,9 +25,12 @@ export const App = () => {
     <Header>
         <nav>
           <Link to="/" end>
+            <IconHome/>
             Home
           </Link>
-          <Link to="/movies">Movies</Link>
+          <Link to="/movies">
+            <IconMovie/>
+            Movies</Link>
           
         </nav> 
     </Header>

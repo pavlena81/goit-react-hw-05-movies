@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
+import { ImHome } from "react-icons/im";
+import { GiAbstract055 } from "react-icons/gi";
 
 export const Container = styled.div`
   max-width: 960px;
@@ -18,7 +20,8 @@ export const Header = styled.header`
   
   > nav {
     display: flex;
-  }
+  }  
+  
 `;
 
 export const Link = styled(NavLink)`
@@ -30,6 +33,13 @@ export const Link = styled(NavLink)`
 
   &.active {
     color: white;
-    background-color: orangered;
-  }
+    background-color: #5972E8;
+  }  
 `;
+
+export const IconHome = styled(ImHome)`
+margin-right:10px;
+`
+export const IconMovie = styled(GiAbstract055)`
+margin-right:10px;
+`
