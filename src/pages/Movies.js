@@ -6,7 +6,7 @@ import { MoviesList } from "components/MoviesList/MoviesList";
 import { SearchInput } from "components/SearchInput";
 import { searchMovie } from "services/api"; 
 
-export const Movies = () => {
+ const Movies = () => {
     const [query, setQuery] = useState('');
     const [movies, setMovies] = useState([]);
     
@@ -25,19 +25,7 @@ export const Movies = () => {
     console.log(movies);
     const queryTitle = searchParams.get('query') ?? "";
 
-    // const visibleMovies = movies.filter((movie) =>
-    //     movie.query.toLowerCase().includes(queryTitle.toLowerCase())
-    // );
-
-    // const onSearchInput = (query) => {
-
-    //     const value = query.value;
-        
-    //     // const nextMovies = query !== "" ? { query } : {};
-    //     setSearchParams({ query: value });
-    //     setQuery(value);
-    // };
-
+    
     const onSearchInput = e => {
         // e.preventDefault();
         const value = e;
@@ -55,3 +43,5 @@ export const Movies = () => {
         </main>
     )
 }
+
+export default Movies;

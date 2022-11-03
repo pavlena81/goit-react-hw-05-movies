@@ -1,27 +1,21 @@
 import { Route, Routes } from "react-router-dom";
-import { Home } from "../pages/Home";
-import { Movies } from "pages/Movies";
-import { MovieDetails } from "pages/MovieDetails/MovieDetails";
+import { lazy, Suspense } from "react";
 
-import { Container, Header, Link } from "./App.styled";
-import { Cast } from "./Cast/Cast";
-import { Reviews } from "./Reviews/Reviews";
+import { Container, Header, Link, IconHome, IconMovie } from "./App.styled";
 
-import { IconHome, IconMovie } from "./App.styled";
+
+const Home = lazy(() => import('../pages/Home'));
+const Movies = lazy(() => import('../pages/Movies'));
+const MovieDetails = lazy (()=> import ('../pages/MovieDetails/MovieDetails'))
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
+
+
 export const App = () => {
   return (
     
     
-    <Container
-      // style={{
-      //   height: '100vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      //   fontSize: 40,
-      //   color: '#010101'
-      // }}
-    >
+    <Container>
     <Header>
         <nav>
           <Link to="/" end>
@@ -34,7 +28,7 @@ export const App = () => {
           
         </nav> 
     </Header>
-
+    <Suspense fallback={<div>Loading...</div>}>
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="movies" element={<Movies />}/>          
@@ -43,7 +37,8 @@ export const App = () => {
           <Route path="cast" element={<Cast />}/>
           <Route path="reviews" element={<Reviews/>}/>
       </Route>
-    </Routes>      
+    </Routes> 
+     </Suspense>    
     </Container>
   );
 };

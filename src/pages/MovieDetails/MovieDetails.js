@@ -8,7 +8,7 @@ import { getMovieId } from "services/api";
 import PropTypes from "prop-types";
 import { Container, Box } from "./MovieDetails.styled";
 
-export const MovieDetails = () => {
+ const MovieDetails = () => {
   const { id } = useParams();
   console.log(id);
   const [movieId, setMovieId] = useState(null);
@@ -27,21 +27,13 @@ export const MovieDetails = () => {
     getMovie(id);
     
   }, [id])
-
-  // useEffect(() => {
-  //   getMovieId(id).then(setMovieId);
-  // }, [id]);
+  
 
   if (!movieId) {
     return null;
   }
   console.log(movieId)
   
-
-  // const genresMovie = genres => {
-  //   const genresKind = genres.map(genre => genre.name);
-  //   return genresKind.join(', ');
-  // }
 
     return (
       <main>
@@ -97,3 +89,5 @@ MovieDetails.propTypes = {
     })
   ),
 }
+
+export default MovieDetails;

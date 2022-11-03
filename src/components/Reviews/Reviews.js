@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 import { ListReview, ItemReview } from "./Reviews.styled";
 
-export const Reviews = () => {
+ const Reviews = () => {
     const { id } = useParams();
     const [reviews, setReview] = useState([]);
    
@@ -55,3 +55,5 @@ Reviews.propTypes = {
     })
   ),
 }
+
+export default Reviews;

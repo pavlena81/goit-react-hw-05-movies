@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import { ItemHome } from "./Home.styled";
 
-export const Home = () => {
+ const Home = () => {
     const location = useLocation();
     const [movies, setMovies] = useState([]);
 
@@ -35,3 +35,5 @@ export const Home = () => {
         </main>
     )
 }
+
+export default Home;
