@@ -28,7 +28,7 @@ export const App = () => {
           
         </nav> 
     </Header>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<h2>Loading...</h2>}>
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="movies" element={<Movies />}/>          
