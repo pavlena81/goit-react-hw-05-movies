@@ -1,4 +1,3 @@
-
 import { getMovieCredits } from "services/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
