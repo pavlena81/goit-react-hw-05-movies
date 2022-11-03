@@ -26,12 +26,12 @@ export const Reviews = () => {
     //     return <h3>We don't have any reviews</h3>
     // }
     console.log(reviews);
-    console.dir();
+    
     return (
         <>
             {reviews.length > 0 ? (
             <ListReview>
-                {reviews.map(({ id, author, content, }) => {                
+                {reviews.map(({ id, author, content }) => {                
                    
                 return (                    
                     <ItemReview key={id}>                        
@@ -50,7 +50,8 @@ export const Reviews = () => {
 
 Reviews.propTypes = {
   id: PropTypes.arrayOf(
-    PropTypes.shape({
+      PropTypes.shape({
+      id: PropTypes.number.isRequired,
       author: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       

@@ -59,7 +59,7 @@ export const MovieDetails = () => {
               }
             </h2>
             <p>User Score: {movieId.vote_average}</p>
-            <h2>OverView</h2>
+            <h2>Overview</h2>
             <p>{movieId.overview}</p>
             <h2>Genres</h2>
           <p>{movieId.genres.map(genre=>genre.name).join(', ')}</p>          
