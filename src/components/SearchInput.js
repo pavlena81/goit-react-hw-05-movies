@@ -1,7 +1,7 @@
 import { Wrapper, Input, Icon } from "./SearchInput.styled";
 
 export const SearchInput = ({ value, onChange }) => {
-  return (
+   return (
     <Wrapper>
       <Icon />
       <Input

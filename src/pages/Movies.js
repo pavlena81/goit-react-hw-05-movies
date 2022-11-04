@@ -28,7 +28,7 @@ import { searchMovie } from "services/api";
     
     const onSearchInput = e => {
         // e.preventDefault();
-        const value = e;
+        const value = e;       
         setQuery(value);
         setSearchParams({ query: value });
     }

@@ -8,6 +8,8 @@ import { getMovieId } from "services/api";
 import PropTypes from "prop-types";
 import { Container, Box } from "./MovieDetails.styled";
 
+import { Suspense } from "react";
+
  const MovieDetails = () => {
   const { id } = useParams();
   console.log(id);
@@ -63,13 +65,15 @@ import { Container, Box } from "./MovieDetails.styled";
         </h2>
         <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={{from: BackLink}}>Cast</Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" state={{from: BackLink}}>Reviews</Link>
         </li>        
-      </ul>
-      <Outlet />
+        </ul>
+        <Suspense fallback={<h2>Loading...</h2>}> 
+          <Outlet />
+        </Suspense>   
       </div>
     </main>
     )
