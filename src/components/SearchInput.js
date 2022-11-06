@@ -1,11 +1,14 @@
 import { Wrapper, Input, Icon } from "./SearchInput.styled";
 
-export const SearchInput = ({ value, onChange }) => {
+
+export const SearchInput = ({ value, onChange}) => {
+  
+
    return (
     <Wrapper>
       <Icon />
       <Input
-        type="text"
+        type="text"        
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
