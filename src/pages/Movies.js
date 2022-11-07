@@ -6,7 +6,7 @@ import { MoviesList } from "components/MoviesList/MoviesList";
 import { SearchInput } from "components/SearchInput";
 import { searchMovie } from "services/api"; 
 
-import { Navigate } from "react-router-dom";
+//import { Navigate } from "react-router-dom";
 //import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 
@@ -35,27 +35,31 @@ const Movies = () => {
     
     
      
-     
+//Квери в инпут только при сабмите формы записывайте, при ончендже не надо
     const onSearchInput = e => {       
-        const value = e;       
-        setQuery(value);          
-               
-        setSearchParams({ query: value });  
-        
+        const value = e;
+        setQuery(value);
+        setSearchParams({ query: value }); 
+       
     }
     
-      
+    
     return (
         <main>
-            <SearchInput value={queryTitle} onChange={onSearchInput} />
+            <SearchInput                
+                value={queryTitle}
+                onChange={onSearchInput}
+             />
             {movies.length === 0 && queryTitle ?
-                (<Navigate to="/movies" replace />)
-                    //, Notify.info('Sorry, there isn`t any movies'))
+                (<h2>Sorry, there isn`t any movies</h2>)
+                    //, Notify.info('Sorry, there isn`t any movies','Close after 3000ms', 3000))
+                   
+               
                 :(<MoviesList movies = { movies } />
            )}
             
             
-
+            {/* <MoviesList movies = { movies } /> */}
         </main>
     )
 }

@@ -1,17 +1,22 @@
-import { Wrapper, Input, Icon } from "./SearchInput.styled";
+import { Wrapper, Input, Icon, Button, Form} from "./SearchInput.styled";
 
 
 export const SearchInput = ({ value, onChange}) => {
   
 
    return (
-    <Wrapper>
-      <Icon />
-      <Input
+     <Wrapper>
+       <Form>     
+     
+        <Input
         type="text"        
         value={value}
         onChange={(e) => onChange(e.target.value)}
-      />
+         />
+         <Button type="submit">
+           <span><Icon /></span>
+          </Button>
+      </Form> 
     </Wrapper>
   );
 };
