@@ -1,17 +1,20 @@
 import { Wrapper, Input, Icon, Button, Form} from "./SearchInput.styled";
-
+import { useState } from "react";
 
 export const SearchInput = ({ value, onChange}) => {
-  
-
-   return (
+  const [searchInput, setSearchInput] = useState(value ?? '');
+ 
+     return (
      <Wrapper>
-       <Form>     
+         <Form onSubmit={(e) => { e.preventDefault(); onChange(searchInput) }}>     
      
         <Input
         type="text"        
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={searchInput}
+             onChange ={(e) => setSearchInput(e.target.value)}
+               
+              
+             
          />
          <Button type="submit">
            <span><Icon /></span>
@@ -20,3 +23,4 @@ export const SearchInput = ({ value, onChange}) => {
     </Wrapper>
   );
 };
+
